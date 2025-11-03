@@ -3,7 +3,7 @@ from varasto import Varasto
 
 
 class TestVarasto(unittest.TestCase):
-    def setUp(self):ddd
+    def setUp(self):
         self.varasto = Varasto(10)
 
     def test_konstruktori_luo_tyhjan_varaston(self):
