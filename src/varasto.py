@@ -1,5 +1,10 @@
+"""Module for varasto (storage) operations."""
+
 class Varasto:
-    def __init__(self, tilavuus, alku_saldo = 0):
+    """Class representing a storage unit."""
+    
+    def __init__(self, tilavuus, alku_saldo=0):
+        """Initialize the Varasto with capacity and initial balance."""
         if tilavuus > 0.0:
             self.tilavuus = tilavuus
         else:
@@ -18,9 +23,11 @@ class Varasto:
 
     # huom: ominaisuus voidaan myös laskea. Ei tarvita erillistä kenttää viela_tilaa tms.
     def paljonko_mahtuu(self):
+        """Return how much more can fit."""
         return self.tilavuus - self.saldo
 
     def lisaa_varastoon(self, maara):
+        """Add amount to storage."""
         if maara < 0:
             return
         if maara <= self.paljonko_mahtuu():
@@ -29,6 +36,7 @@ class Varasto:
             self.saldo = self.tilavuus
 
     def ota_varastosta(self, maara):
+        """Remove amount from storage and return the amount removed."""
         if maara < 0:
             return 0.0
         if maara > self.saldo:
